@@ -55,11 +55,17 @@ please [<user.text>]:
   insert(user.text or "")
 
 # Sidebar
-bar explore: user.vscode("workbench.view.explorer")
+# You can't use another bar command when you have another bar in focus
+# Or is it something to do with being in the search bar?
+# Anyway to get around this say F1, or you can override with keyboard shortcuts 
+# e.g. bar explore (works) then bar search (just goes back to bar explore)
+# bar explore: user.vscode("workbench.view.explorer")
+bar explore: key(ctrl-shift-e)
 bar extensions: user.vscode("workbench.view.extensions")
 bar outline: user.vscode("outline.focus")
 bar run: user.vscode("workbench.view.debug")
-bar search: user.vscode("workbench.view.search")
+# bar search: user.vscode("workbench.view.search")
+bar search: key(ctrl-shift-f)
 bar source: user.vscode("workbench.view.scm")
 bar switch: user.vscode("workbench.action.toggleSidebarVisibility")
 
@@ -68,7 +74,7 @@ panel control: user.vscode("workbench.panel.repl.view.focus")
 panel output: user.vscode("workbench.panel.output.focus")
 panel problems: user.vscode("workbench.panel.markers.view.focus")
 panel switch: user.vscode("workbench.action.togglePanel")
-panel terminal: user.vscode("workbench.panel.terminal.focus")
+panel terminal: user.vscode("workbench.action.terminal.focus")
 
 # Settings
 show settings: user.vscode("workbench.action.openGlobalSettings")
@@ -121,12 +127,26 @@ refactor this: user.vscode("editor.action.refactor")
 
 #code navigation
 (go declaration | follow): user.vscode("Go to Declaration")
-go back: user.vscode("workbench.action.navigateBack") 
-go forward:  user.vscode("workbench.action.navigateForward")  
+navigate back: user.vscode("workbench.action.navigateBack") 
+navigate forward:  user.vscode("workbench.action.navigateForward")  
 go implementation: user.vscode("Go to Implementation")
 go recent: user.vscode("File: Open Recent")
 go type: user.vscode("editor.action.goToTypeDefinition")
 go usage: user.vscode("References: Find All References")
+# go to bracket: user.vscode("editor.action.jumpToBracket")
+go to bracket: key(ctrl-shift-\)
+go bracket: key(ctrl-shift-\)
+# select expand: user.vscode("editor.action.smartSelect.expand")
+select expand: key(shift-alt-right)
+# select shrink: user.vscode("editor.action.smartSelect.shrink")
+select shrink: key(shift-alt-left)
+# fix that: user.vscode("editor.action.quickFix")
+fix that: key(ctrl-.)
+cursor last: key(ctrl-u)
+tag wrap: key(alt-w)
+find it: key(ctrl-f)
+replace it: key(ctrl-h)
+
 
 # Bookmarks. Requires Bookmarks plugin
 go marks: user.vscode("View: Show Bookmarks")

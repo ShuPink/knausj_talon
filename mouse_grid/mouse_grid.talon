@@ -11,6 +11,7 @@ grid <user.number_key>+:
     user.grid_activate()
     user.grid_narrow_list(number_key_list)
 
-grid screen <number>:
-    user.grid_select_screen(number)
-    user.grid_activate()
+# I turned this off because I can't get "grid off" working in this mode
+#grid screen <number>:
+#    user.grid_select_screen(number)
+#    user.grid_activate()

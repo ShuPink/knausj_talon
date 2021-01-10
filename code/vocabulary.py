@@ -82,6 +82,7 @@ _capitalize_defaults = [
 _word_map_defaults = {
     # E.g:
     # "cash": "cache",
+	"aline": "align",
 }
 _word_map_defaults.update({word.lower(): word for word in _capitalize_defaults})
 

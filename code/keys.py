@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip".split(
+default_alphabet = "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -107,7 +107,7 @@ def letters(m) -> str:
 ctx = Context()
 ctx.lists["self.modifier_key"] = {
     # If you find 'alt' is often misrecognized, try using 'alter'.
-    "alt": "alt",  #'alter': 'alt',
+    "alter": "alt",  #'alter': 'alt',
     "command": "cmd",
     "control": "ctrl",  #'troll':   'ctrl',
     "option": "alt",
@@ -145,10 +145,10 @@ punctuation_words = {
 symbol_key_words = {
     "dot": ".",
     "quote": "'",
-    "L square": "[",
+    #"L square": "[",
     "left square": "[",
     "square": "[",
-    "R square": "]",
+    #"R square": "]",
     "right square": "]",
     "slash": "/",
     "backslash": "\\",
@@ -157,31 +157,32 @@ symbol_key_words = {
     "equals": "=",
     "plus": "+",
     "tilde": "~",
-    "bang": "!",
+    #"bang": "!",
+    "exclamation": "!",
     "dollar": "$",
     "down score": "_",
     "under score": "_",
     "paren": "(",
-    "L paren": "(",
+    #"L paren": "(",
     "left paren": "(",
-    "R paren": ")",
+    #"R paren": ")",
     "right paren": ")",
     "brace": "{",
     "left brace": "{",
-    "R brace": "}",
+    #"R brace": "}",
     "right brace": "}",
     "angle": "<",
     "left angle": "<",
     "less than": "<",
     "rangle": ">",
-    "R angle": ">",
+    #"R angle": ">",
     "right angle": ">",
     "greater than": ">",
     "star": "*",
-    "pound": "#",
+    #"pound": "#",
     "hash": "#",
     "percent": "%",
-    "caret": "^",
+    "power": "^",
     "amper": "&",
     "pipe": "|",
     "dubquote": '"',
@@ -213,9 +214,11 @@ simple_keys = [
 ]
 
 alternate_keys = {
-    "delete": "backspace",
-    "forward delete": "delete",
-    #'junk': 'backspace',
+    #"delete": "backspace",
+    #"forward delete": "delete",
+	"backspace": "backspace",
+    "delete": "delete",
+    "junk": "backspace",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
