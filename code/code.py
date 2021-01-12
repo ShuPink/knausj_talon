@@ -56,6 +56,8 @@ extension_lang_map = {
     "vba": "vba",
     "vim": "vimscript",
     "vimrc": "vimscript",
+    "css": "stylesheet",
+    "scss": "stylesheet",
 }
 
 # flag indicates whether or not the title tracking is enabled
@@ -108,6 +110,9 @@ for __, lang in extension_lang_map.items():
 
 @mod.action_class
 class Actions:
+    # def mangle(text: str):
+    #     """Mangles some text"""
+
     def code_set_language_mode(language: str):
         """Sets the active language mode, and disables extension matching"""
         global forced_language
