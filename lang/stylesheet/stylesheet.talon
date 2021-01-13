@@ -37,7 +37,7 @@ align items {user.flex}:
 align content {user.flex}:
   insert("align-content: {flex};")
 
-justify content {user.flex}:
+justify [content] {user.flex}:
   insert("justify-content: {flex};")  
 
 display block:
@@ -96,7 +96,7 @@ class <user.text>:
   insert(" {}")
   key(left)
 
-id <user.text>:
+identity <user.text>:
   insert("#")
   insert(user.formatted_text(text, "PRIVATE_CAMEL_CASE"))
   insert(" {}")

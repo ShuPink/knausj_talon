@@ -38,6 +38,7 @@ ctx.lists["user.attribute"] = {
     "background": "background",
     "color": "color",
     "border": "border",
+    "line height": "line-height"
 }
 
 ctx.lists["user.flex"] = {

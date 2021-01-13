@@ -155,3 +155,31 @@ state spread: "..."
 ^funky <user.text>$: user.code_private_function(text)
 ^pro funky <user.text>$: user.code_protected_function(text)
 ^pub funky <user.text>$: user.code_public_function(text)
+
+# JSX
+
+component <user.text>:
+  insert('<{user.formatted_text(text, "PUBLIC_CAMEL_CASE")} />')
+  key("ctrl-left")
+
+import component <user.text>: 
+  insert('''import {user.formatted_text(text, "PUBLIC_CAMEL_CASE")} from '';''')
+  key(left)
+  key(left)
+
+class name:
+  insert('className={}')
+  key(left)
+
+property <user.text>:
+  insert('{text}')
+  insert('={}')
+  key(left)
+
+arrow funky:
+  insert(' => {};')
+  key(left)
+  key(left)
+
+image source:
+  insert('src')  

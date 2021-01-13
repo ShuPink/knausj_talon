@@ -144,6 +144,7 @@ punctuation_words = {
 }
 symbol_key_words = {
     "dot": ".",
+    "point": ".",
     "quote": "'",
     #"L square": "[",
     "left square": "[",
