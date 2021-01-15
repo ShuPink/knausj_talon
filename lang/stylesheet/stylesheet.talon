@@ -7,6 +7,13 @@ and code.language: stylesheet
 # tag(): user.code_generic
 tag(): user.stylesheet
 
+# I'm using css modules with React, otherwise would probably
+# make the class name formatter kebab case (DASH_SEPARATED)
+
+settings():
+    user.stylesheet_scss_variable_formatter = "DASH_SEPARATED"
+    user.stylesheet_css_name_formatter = "PRIVATE_CAMEL_CASE"
+
 # overflow ---
 overflow hidden:
   insert("overflow: hidden;")
@@ -46,22 +53,26 @@ display block:
 display span: 
   insert("display: span;")  
 
-display inline span: 
-  insert("display: inline-span;")
+display inline block: 
+  insert("display: inline-block;")
 
 display none:
   insert("display: none;")
 
 # quantifiers ---
-{user.attribute} [is] <number> {user.units}:
-  insert("{attribute}: {number}{units};")
+{user.cssproperty} [is] <number> {user.units}:
+  insert("{cssproperty}: {number}{units};")
 
-{user.attribute} is:
-  insert("{attribute}: ;")
+{user.cssproperty} is:
+  insert("{cssproperty}: ;")
   key(left)
 
-<number> {user.units}:
-  insert("{number}{units}")
+
+hello {user.units}:
+  insert("hello")
+
+<number> {user.cssunits}:
+  insert("{number}{cssunits}")
 
 calculate:
   insert("calc()")
@@ -86,23 +97,25 @@ include:
   insert("@include ;")
   key(left)
 
+variable <user.text>:
+  insert("$")
+  user.stylesheet_scss_variable(text)
+
 # Selectors
 
 # I'm using css modules with React, otherwise would probably
 # make this formatter kebab case (DASH_SEPARATED)
 class <user.text>:
   insert(".")
-  insert(user.formatted_text(text, "PRIVATE_CAMEL_CASE"))
+  user.stylesheet_css_name(text)
   insert(" {}")
   key(left)
 
 identity <user.text>:
   insert("#")
-  insert(user.formatted_text(text, "PRIVATE_CAMEL_CASE"))
+  user.stylesheet_css_name(text)
   insert(" {}")
   key(left)
-
-
 
 # test ----
 
@@ -114,3 +127,7 @@ mangle <user.text>:
 # ^funky <user.text>$: user.code_private_function(text)
 # ^pro funky <user.text>$: user.code_protected_function(text)
 # ^pub funky <user.text>$: user.code_public_function(text)
+
+import utilities: 
+  insert('''@import "/styles/utils.scss";''')
+

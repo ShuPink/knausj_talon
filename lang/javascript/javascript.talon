@@ -167,9 +167,13 @@ import component <user.text>:
   key(left)
   key(left)
 
-class name:
+class name is:
   insert('className={}')
   key(left)
+
+classes are:
+  insert('''classes={{{{}}}}''')
+  key(left:2)
 
 property <user.text>:
   insert('{text}')
@@ -180,6 +184,3 @@ arrow funky:
   insert(' => {};')
   key(left)
   key(left)
-
-image source:
-  insert('src')  

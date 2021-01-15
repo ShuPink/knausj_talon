@@ -21,8 +21,9 @@ task switch:
 task list:
 	key("super-tab")
 
-move window {user.arrow_key}:
+move [window] {user.arrow_key}:
 	key("super-{arrow_key}")
 
-#  task <number>:
-# 	key("ctrl-super-{number}")
+minimise: 
+	key("super-down")
+

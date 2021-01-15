@@ -7,7 +7,7 @@ mode: command
 and code.language: stylesheet
 """
 
-ctx.lists["user.units"] = {
+ctx.lists["user.cssunits"] = {
     "pixels": "px",
     "percent": "%",
     "rem": "rem",
@@ -15,12 +15,17 @@ ctx.lists["user.units"] = {
     "view width": "vw",
 }
 
-ctx.lists["user.attribute"] = {
+ctx.lists["user.cssproperty"] = {
     "height": "height",
+    "max height": "max-height",
+    "min height": "min-height",
+    "max width": "max-width",
+    "min width": "min-width",
     "width": "width",
     "font": "font",
     "font size": "font-size",
     "font family": "font-family",
+    "font weight": "font-weight",
     "padding": "padding",
     "padding left": "padding-left",
     "padding top": "padding-top",
@@ -38,7 +43,9 @@ ctx.lists["user.attribute"] = {
     "background": "background",
     "color": "color",
     "border": "border",
-    "line height": "line-height"
+    "line height": "line-height",
+    "text align": "text-align",
+    "box shadow": "box-shadow",
 }
 
 ctx.lists["user.flex"] = {
@@ -53,11 +60,16 @@ ctx.lists["user.flex"] = {
 }
 
 mod = Module()
-mod.list("units", desc="Common css units")
-mod.list("attribute", desc="Common css attributes")
+mod.list("cssunits", desc="Common css units")
+mod.list("cssproperty", desc="Common css properties")
 mod.list("flex", desc="Common flexbox options")
 
 mod.tag("stylesheet", desc="Stylesheet commands")
+
+# setting_stylesheet_scss_variable_formatter = mod.setting("stylesheet_scss_variable_formatter", str)
+mod.setting("stylesheet_css_name_formatter", str)
+mod.setting("stylesheet_scss_variable_formatter", str)
+
 
 @ctx.action_class("user")
 class user_actions:
@@ -68,3 +80,19 @@ class user_actions:
 class Actions:
     def mangle(text: str):
         """Mangles some text"""
+
+    def stylesheet_css_name(name: str):
+        """Inserts css name (generic e.g. with class or id) with formatter"""
+        actions.insert(
+            actions.user.formatted_text(
+                name, settings.get("user.stylesheet_css_name_formatter")
+            )
+        ) 
+
+    def stylesheet_scss_variable(name: str):
+        """Inserts variable name with formatter"""
+        actions.insert(
+            actions.user.formatted_text(
+                name, settings.get("user.stylesheet_scss_variable_formatter")
+            )
+        )    

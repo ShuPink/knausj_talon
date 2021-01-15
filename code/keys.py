@@ -222,7 +222,6 @@ alternate_keys = {
     #"forward delete": "delete",
 	"backspace": "backspace",
     "delete": "delete",
-    "junk": "backspace",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
@@ -231,10 +230,15 @@ if app.platform in ("windows", "linux"):
 keys = {k: k for k in simple_keys}
 keys.update(alternate_keys)
 ctx.lists["self.special_key"] = keys
-ctx.lists["self.function_key"] = {
-    f"F {default_f_digits[i]}": f"f{i + 1}" for i in range(12)
-}
 
+# ctx.lists["self.function_key"] = {
+#     f"F {default_f_digits[i]}": f"f{i + 1}" for i in range(12)
+# }
+
+# my success rate for "f five" and "f four" is terrible
+ctx.lists["self.function_key"] = {
+    f"fun {default_f_digits[i]}": f"f{i + 1}" for i in range(12)
+}
 
 @mod.action_class
 class Actions:

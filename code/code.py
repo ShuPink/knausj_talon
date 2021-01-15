@@ -58,6 +58,7 @@ extension_lang_map = {
     "vimrc": "vimscript",
     "css": "stylesheet",
     "scss": "stylesheet",
+    "html": "html",
 }
 
 # flag indicates whether or not the title tracking is enabled
