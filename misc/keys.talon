@@ -1,4 +1,16 @@
-go <user.arrow_keys>: key(arrow_keys)
+#go <user.arrow_keys>: key(arrow_keys)
+#trying something a bit different
+uppish: key(up)
+upper: key(up:5)
+uppest: key(pgup)
+downish: key(down)
+downer: key(down:5)
+downest: key(pgdown)
+leftish: key(left)
+lefter: key(ctrl-left)
+rightish: key(right)
+righter: key(ctrl-right)
+
 <user.letter>: key(letter)
 (ship | uppercase) <user.letters> [(lowercase | sunk)]: 
     user.insert_formatted(letters, "ALL_CAPS")

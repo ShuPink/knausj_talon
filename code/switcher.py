@@ -14,7 +14,6 @@ overrides_directory = os.path.join(cwd, "app_names")
 override_file_name = f"app_name_overrides.{talon.app.platform}.csv"
 override_file_path = os.path.join(overrides_directory, override_file_name)
 
-
 mod = Module()
 mod.list("running", desc="all running applications")
 mod.list("launch", desc="all launchable applications")
@@ -25,7 +24,6 @@ overrides = {}
 
 # a list of the currently running application names
 running_application_dict = {}
-
 
 @mod.capture(rule="{self.running}")  # | <user.text>)")
 def running_applications(m) -> str:
@@ -53,6 +51,17 @@ def get_words(name):
         out += split_camel(word)
     return out
 
+# the following "foreground" exes don't come into focus even if you call them
+exclusions = [
+    'ApplicationFrameHost.exe',
+    'SearchApp.exe', # cortana (I've "disabled" mine)
+    'ShellExperienceHost.exe',
+    "StartMenuExperienceHost.exe", # I already bound "Start" to something else
+    'SystemSettings.exe', # better just to use windows + pause
+    'TextInputHost.exe', # this is apparently an emoji picker tool??
+    'Microsoft.Notes.exe', # one note - I don't use this
+    'LockApp.exe', # default lock screen overlay
+    ]
 
 def update_lists():
     global running_application_dict
@@ -60,6 +69,11 @@ def update_lists():
     running = {}
     for cur_app in ui.apps(background=False):
         name = cur_app.name
+
+        # This is a bit brute force... but since I changed "focus <app>" 
+        # to "[focus] <app>" I kept trying to bring into focus stuff I didn't want
+        if name in exclusions:
+            continue
 
         if name.endswith(".exe"):
             name = name.rsplit(".", 1)[0]
@@ -106,6 +120,8 @@ class Actions:
         # We should use the capture result directly if it's already in the list
         # of running applications. Otherwise, name is from <user.text> and we
         # can be a bit fuzzier
+        print("get_running_app: " + name)
+        print(ctx.lists["self.running"])
         if name in running_application_dict:
             for app in ui.apps():
                 if app.name == name and not app.background:
@@ -128,9 +144,9 @@ class Actions:
 
     def switcher_focus(name: str):
         """Focus a new application by  name"""
+        print(name)
         app = actions.self.get_running_app(name)
         app.focus()
-
         # Hacky solution to do this reliably on Mac.
         timeout = 5
         t1 = time.monotonic()

@@ -93,13 +93,27 @@ position sticky:
   insert("position: sticky;")
 
 # scss ----
-include:
+^include$:
   insert("@include ;")
   key(left)
+
+include <user.text>:
+  insert("@include ;")
+  key(left) 
+  user.stylesheet_scss_variable(text)
 
 variable <user.text>:
   insert("$")
   user.stylesheet_scss_variable(text)
+
+mix in <user.text>:
+  insert("@mixin ")
+  user.stylesheet_scss_variable(text)
+  insert(" {}")
+  key(left enter)
+
+(breakpoint | break point) {user.breakpoints}:
+  insert("{breakpoints}")
 
 # Selectors
 
@@ -109,7 +123,7 @@ class <user.text>:
   insert(".")
   user.stylesheet_css_name(text)
   insert(" {}")
-  key(left)
+  key(left enter)
 
 identity <user.text>:
   insert("#")

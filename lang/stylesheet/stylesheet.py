@@ -59,10 +59,19 @@ ctx.lists["user.flex"] = {
     "baseline": "baseline",
 }
 
+ctx.lists["user.breakpoints"] = {
+    "extra small": "xs",
+    "small": "sm",
+    "medium": "md",
+    "large": "lg",
+    "extra large": "xl",
+}
+
 mod = Module()
 mod.list("cssunits", desc="Common css units")
 mod.list("cssproperty", desc="Common css properties")
 mod.list("flex", desc="Common flexbox options")
+mod.list("breakpoints", desc="Common responsive breakpoints")
 
 mod.tag("stylesheet", desc="Stylesheet commands")
 

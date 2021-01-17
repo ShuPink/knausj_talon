@@ -1,13 +1,20 @@
 tag: user.mouse_grid_enabled
 -
-M grid:
+#M grid:
+full grid:
     user.grid_activate()
 
-grid win:
+grid:
     user.grid_place_window()
     user.grid_activate()
 
 grid <user.number_key>+:
+    user.grid_place_window()
+    user.grid_activate()
+    user.grid_narrow_list(number_key_list)
+
+# grid <user.number_key>+:
+full grid <user.number_key>+:
     user.grid_activate()
     user.grid_narrow_list(number_key_list)
 
