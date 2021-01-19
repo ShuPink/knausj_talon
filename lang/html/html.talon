@@ -8,7 +8,7 @@ and code.language: javascript
 # tag(): user.code_operators
 # tag(): user.code_comment
 # tag(): user.code_generic
-tag(): user.html
+# tag(): user.html
 
 # elements
 
@@ -25,7 +25,7 @@ insert anchor:
   key(ctrl-left:2 right)
 
 insert list:
-  insert('<ul><li>point_one</li>\n<li>point_two</li></ul>')
+  insert('<ul>\n<li>point_one</li>\n<li>point_two</li>\n</ul>')
   key(ctrl-left:2 right)
 
 # attributes ---

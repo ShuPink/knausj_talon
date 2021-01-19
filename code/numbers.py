@@ -7,7 +7,9 @@ ctx = Context()
 digits = "zero one two three four five six seven eight nine".split()
 teens = "eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
 tens = "ten twenty thirty forty fifty sixty seventy eighty ninety".split()
-scales = "hundred thousand million billion trillion quadrillion quintillion sextillion septillion octillion nonillion decillion".split()
+# lol I'm never going to use half of these, and I accidentally activated it by saying "synonym"
+# scales = "hundred thousand million billion trillion quadrillion quintillion sextillion septillion octillion nonillion decillion".split() 
+scales = "hundred thousand million billion trillion".split()
 
 digits_map = {n: i for i, n in enumerate(digits)}
 # "oh" misfiring a lot for me

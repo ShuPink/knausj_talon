@@ -22,7 +22,7 @@ undo [that]: edit.undo()
 redo [that]: edit.redo()
 paste match: edit.paste_match_style()
 file save: edit.save()
-save (this | that): edit.save()
+keep that: edit.save()
 #wipe: key(backspace)
 junk: key(backspace)
 # (pad | padding): 

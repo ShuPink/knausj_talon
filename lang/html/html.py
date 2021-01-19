@@ -21,7 +21,7 @@ ctx.lists["user.htmlelement"] = {
     "division": "div",
     "div": "div",
     "image": "img",
-    "hyperlink": "a",
+    "anchor": "a",
     "paragraph": "p",
     "span": "span",   
     "pre": "pre",

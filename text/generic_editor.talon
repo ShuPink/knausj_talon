@@ -69,6 +69,9 @@ select down:
 select word:
     edit.select_word()
 
+^select$:
+    edit.select_word()
+
 select word left:
     edit.extend_word_left()
 

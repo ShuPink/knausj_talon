@@ -158,9 +158,14 @@ state spread: "..."
 
 # JSX
 
-component <user.text>:
+^component <user.text>$:
   insert('<{user.formatted_text(text, "PUBLIC_CAMEL_CASE")} />')
   key("ctrl-left")
+
+parent component <user.text>:
+  insert('<{user.formatted_text(text, "PUBLIC_CAMEL_CASE")}>')
+  insert('</{user.formatted_text(text, "PUBLIC_CAMEL_CASE")}>')
+  key("ctrl-left:2")
 
 import component <user.text>: 
   insert('''import {user.formatted_text(text, "PUBLIC_CAMEL_CASE")} from '';''')
@@ -180,7 +185,23 @@ property <user.text>:
   insert('={}')
   key(left)
 
+property string <user.text>:
+  insert('{text}')
+  insert('=""')
+  key(left)
+
+key <user.text>:
+  insert('{text}: ,')
+  key(left)
+
+key string <user.text>:
+  insert('{text}: "",')
+  key(left:2)
+
 arrow funky:
   insert(' => {};')
-  key(left)
+  key(left:2)
+
+break point {user.breakpoints}:
+  insert('{breakpoints}={{}}')
   key(left)

@@ -5,11 +5,13 @@ ctx.matches = r"""
 mode: user.stylesheet
 mode: command 
 and code.language: stylesheet
+mode: command 
+and code.language: javascript
 """
 
 ctx.lists["user.cssunits"] = {
     "pixels": "px",
-    "percent": "%",
+    "percent": "%", 
     "rem": "rem",
     "view height": "vh",
     "view width": "vw",

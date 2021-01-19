@@ -4,7 +4,7 @@ tag: user.mouse_grid_enabled
 full grid:
     user.grid_activate()
 
-grid:
+^grid$:
     user.grid_place_window()
     user.grid_activate()
 

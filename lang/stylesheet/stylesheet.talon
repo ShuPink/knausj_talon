@@ -67,10 +67,6 @@ display none:
   insert("{cssproperty}: ;")
   key(left)
 
-
-hello {user.units}:
-  insert("hello")
-
 <number> {user.cssunits}:
   insert("{number}{cssunits}")
 
@@ -102,7 +98,7 @@ include <user.text>:
   key(left) 
   user.stylesheet_scss_variable(text)
 
-variable <user.text>:
+var <user.text>:
   insert("$")
   user.stylesheet_scss_variable(text)
 
@@ -144,4 +140,3 @@ mangle <user.text>:
 
 import utilities: 
   insert('''@import "/styles/utils.scss";''')
-
