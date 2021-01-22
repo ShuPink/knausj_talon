@@ -18,9 +18,9 @@ action(user.code_is_not_null): " !== null"
 
 action(user.code_is_null): " === null"
 
-action(user.code_type_dictionary):
-  insert("{}")
-  key(left)
+# action(user.code_type_dictionary):
+#   insert("{}")
+#   key(left)
 
 action(user.code_state_if):
   insert("if ()")
@@ -156,6 +156,10 @@ state spread: "..."
 ^pro funky <user.text>$: user.code_protected_function(text)
 ^pub funky <user.text>$: user.code_public_function(text)
 
+# this is vscode specific, because it keeps auto completing the comment
+action(user.code_document_string):
+  user.insert_cursor("/**\n[|]")
+
 # JSX
 
 ^component <user.text>$:
@@ -167,8 +171,19 @@ parent component <user.text>:
   insert('</{user.formatted_text(text, "PUBLIC_CAMEL_CASE")}>')
   key("ctrl-left:2")
 
+# for import { something } from 'some_module'; use the inbuilt snippet
+toggle imports: user.code_toggle_libraries()
+
+import <user.code_libraries>:
+    user.code_insert_library(code_libraries, "")
+
 import component <user.text>: 
   insert('''import {user.formatted_text(text, "PUBLIC_CAMEL_CASE")} from '';''')
+  key(left)
+  key(left)
+
+import module <user.text>: 
+  insert('''import {user.formatted_text(text, "PRIVATE_CAMEL_CASE")} from '';''')
   key(left)
   key(left)
 
@@ -181,13 +196,11 @@ classes are:
   key(left:2)
 
 property <user.text>:
-  insert('{text}')
-  insert('={}')
+  insert('{user.formatted_text(text, "PRIVATE_CAMEL_CASE")}={{}}')
   key(left)
 
 property string <user.text>:
-  insert('{text}')
-  insert('=""')
+  insert('{user.formatted_text(text, "PRIVATE_CAMEL_CASE")}=""')
   key(left)
 
 key <user.text>:

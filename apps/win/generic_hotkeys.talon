@@ -46,3 +46,9 @@ move [window] {user.arrow_key}:
 minimise: 
 	key("super-down")
 
+maximise: 
+	key("super-up")
+
+^alter$:
+	key("alt")
+	

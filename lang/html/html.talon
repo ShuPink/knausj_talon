@@ -16,10 +16,6 @@ element {user.htmlelement}:
   insert("<{htmlelement}></{htmlelement}>")
   key(ctrl-left:2 right)
 
-heading <number>: 
-  insert("<h{number}></h{number}>")
-  key(ctrl-left:2 right)
-
 insert anchor:
   insert('<a href="link">display_text</a>')
   key(ctrl-left:2 right)

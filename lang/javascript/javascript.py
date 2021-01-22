@@ -6,13 +6,18 @@ mode: user.javascript
 mode: command 
 and code.language: javascript
 """
-# tbd
-# ctx.lists["user.code_functions"] = {
-#     "integer": "int.TryParse",
-#     "print": "Console.WriteLine",
-#     "string": ".ToString",
-# }
 
+ctx.lists["user.code_functions"] = {
+    "print": "console.log",
+    "string": ".ToString",
+}
+
+ctx.lists["user.code_libraries"] = {
+    "class ex": "clsx:clsx",
+    "head": "Head:next/head",
+    "grid": "Grid:@material-ui/core/Grid",
+    "hooks": "{ useRef, useState, useEffect }:react"
+}
 
 @ctx.action_class("user")
 class user_actions:
@@ -24,6 +29,16 @@ class user_actions:
 
         actions.user.paste(text)
         actions.edit.left()
+
+    def code_insert_library(text: str, selection: str):
+        """Inserts a library and positions the cursor appropriately"""
+        split = text.split(":")
+        print(split)
+        mod = split[0]
+        src = split[1]
+        s = f'import {mod} from \'{src}\';'
+        #actions.user.insert_cursor(s)
+        actions.insert(s)
 
     def code_private_function(text: str):
         """Inserts private function declaration"""

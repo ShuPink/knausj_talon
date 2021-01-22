@@ -111,8 +111,16 @@ for __, lang in extension_lang_map.items():
 
 @mod.action_class
 class Actions:
-    # def mangle(text: str):
-    #     """Mangles some text"""
+    # *** note I took this from python.py
+    def insert_cursor(text: str):
+        """Insert a string. Leave the cursor wherever [|] is in the text"""
+        if "[|]" in text:
+            end_pos = text.find("[|]")
+            s = text.replace("[|]", "")
+            actions.insert(s)
+            actions.key(f"left:{len(s) - end_pos}")
+        else:
+            actions.insert(text)
 
     def code_set_language_mode(language: str):
         """Sets the active language mode, and disables extension matching"""

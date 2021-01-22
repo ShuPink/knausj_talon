@@ -61,6 +61,8 @@ exclusions = [
     'TextInputHost.exe', # this is apparently an emoji picker tool??
     'Microsoft.Notes.exe', # one note - I don't use this
     'LockApp.exe', # default lock screen overlay
+    'PaintStudio.View.exe', # unfortunately paint 3d seems to always be running
+    'talon.exe', # I don't actually want to activate the talon app
     ]
 
 def update_lists():
