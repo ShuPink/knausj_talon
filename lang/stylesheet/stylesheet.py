@@ -28,6 +28,8 @@ ctx.lists["user.cssproperty"] = {
     "font size": "font-size",
     "font family": "font-family",
     "font weight": "font-weight",
+    "text transform": "text-transform",
+    "letter spacing": "letter-spacing",
     "padding": "padding",
     "padding left": "padding-left",
     "padding top": "padding-top",
@@ -45,9 +47,11 @@ ctx.lists["user.cssproperty"] = {
     "background": "background",
     "color": "color",
     "border": "border",
+    "border radius": "border-radius",
     "line height": "line-height",
     "text align": "text-align",
     "box shadow": "box-shadow",
+    "overflow": "overflow",
 }
 
 ctx.lists["user.flex"] = {

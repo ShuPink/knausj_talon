@@ -14,9 +14,21 @@ action(app.tab_previous): user.vscode("workbench.action.previousEditorInGroup")
 action(app.tab_reopen): user.vscode("workbench.action.reopenClosedEditor")
 action(app.window_close): user.vscode("workbench.action.closeWindow")
 action(app.window_open): user.vscode("workbench.action.newWindow")
+# tab pin is too close to tab open...
+tab staple:
+  key(ctrl-k)
+  key(shift-enter)
 
 #talon code actions
 action(code.toggle_comment): user.vscode("editor.action.commentLine")
+# ?? couldn't find command for just commenting a selection
+comment that:
+  key(ctrl-k)
+  key(ctrl-c)
+
+uncomment that:
+  key(ctrl-k)
+  key(ctrl-u)
 
 #talon edit actions
 action(edit.indent_more): user.vscode("editor.action.indentLines")
