@@ -73,11 +73,19 @@ ctx.lists["user.breakpoints"] = {
     "extra large": "xl",
 }
 
+
+ctx.lists["user.scssmodule"] = {
+    "fade out": "fade-out",
+    "darken": "darken",
+    "lighten": "lighten",
+}
+
 mod = Module()
 mod.list("cssunits", desc="Common css units")
 mod.list("cssproperty", desc="Common css properties")
 mod.list("flex", desc="Common flexbox options")
 mod.list("breakpoints", desc="Common responsive breakpoints")
+mod.list("scssmodule", desc="scss module functions")
 
 mod.tag("stylesheet", desc="Stylesheet commands")
 

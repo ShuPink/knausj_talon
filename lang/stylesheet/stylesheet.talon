@@ -111,6 +111,10 @@ mix in <user.text>:
 (breakpoint | break point) {user.breakpoints}:
   insert("{breakpoints}")
 
+# maybe should move to snippets later?
+module {user.scssmodule}:
+  user.insert_cursor("{scssmodule}([|])")
+
 # Selectors
 
 # I'm using css modules with React, otherwise would probably

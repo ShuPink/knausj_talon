@@ -212,6 +212,7 @@ class MouseSnapNine:
         # offset_y + 2 * height // 3,
         # )
 
+        # line thickness
         grid_stroke = 1
 
         if not self.active and shimmer_effect_enabled.get():
@@ -264,11 +265,14 @@ class MouseSnapNine:
                     background_rect.center = Point2d(
                             offset_x + width / 6 + col * width / 3,
                             offset_y + height / 6 + row * height / 3)
-                    background_rect = background_rect.inset(-4)
-                    paint.color = "9999995f"
+                    # this modifies the number box padding
+                    background_rect = background_rect.inset(-10)
+                    # box color
+                    paint.color = "1f1f1f"
                     paint.style = Paint.Style.FILL
                     canvas.draw_rect(background_rect)
-                    paint.color = "00ff00ff"
+                    # font color
+                    paint.color = "ffffff"
                     canvas.draw_text(
                         text_string,
                         offset_x + width / 6 + col * width / 3,
@@ -276,7 +280,8 @@ class MouseSnapNine:
                     )
 
         if self.count < 2:
-            paint.color = "00ff007f"
+            # the cross (+) color
+            paint.color = "1f1f1f"
             for which in range(1, 10):
                 gap = 35 - self.count * 10
                 if not self.active:
@@ -289,7 +294,7 @@ class MouseSnapNine:
 
         paint.stroke_width = grid_stroke
         if self.active:
-            paint.color = "ff0000ff"
+            paint.color = "edc02b"
         else:
             paint.color = "000000ff"
         if self.count >= 2:
@@ -308,7 +313,7 @@ class MouseSnapNine:
         else:
             draw_grid(self.offset_x, self.offset_y, self.width, self.height)
 
-            paint.textsize += 12 - self.count * 3
+            paint.textsize += 30 - self.count * 3
             draw_text(self.offset_x, self.offset_y, self.width, self.height)
 
     def calc_narrow(self, which, offset_x, offset_y, width, height):
