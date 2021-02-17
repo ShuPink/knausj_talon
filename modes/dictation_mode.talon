@@ -4,12 +4,13 @@ mode: dictation
 
 # Everything here should call auto_insert to preserve the state to correctly auto-capitalize/auto-space.
 <user.text>: auto_insert(text)
-enter: auto_insert("new-line")
 {user.punctuation}: auto_insert(punctuation)
-cap <user.text>:
-    result = user.formatted_text(user.text, "CAPITALIZE_FIRST_WORD")
+new line: auto_insert("new-line")
+new paragraph: auto_insert("new-paragraph")
+cap <user.word>:
+    result = user.formatted_text(word, "CAPITALIZE_FIRST_WORD")
     auto_insert(result)
-
+    
 # Navigation
 go up <number_small> (line|lines):
     edit.up()
@@ -65,9 +66,9 @@ formatted <user.format_text>:
     user.formatters_reformat_selection(formatters)
 
 # Corrections
-scratch that: user.clear_last_utterance()
+scratch that: user.clear_last_phrase()
 scratch selection: edit.delete()
-select that: user.select_last_utterance()
+select that: user.select_last_phrase()
 spell that <user.letters>: auto_insert(letters)
 spell that <user.formatters> <user.letters>:
     result = user.formatted_text(letters, formatters)

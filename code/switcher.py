@@ -197,7 +197,7 @@ def update_lists():
 
         words = get_words(name)
         for word in words:
-            if word and word not in running:
+            if word and word not in running and len(word) >= 3:
                 running[word.lower()] = cur_app.name
 
         running[name.lower()] = cur_app.name
@@ -328,17 +328,18 @@ def gui(gui: imgui.GUI):
 def update_launch_list():
     launch = {}
     if app.platform == "mac":
-        for base in "/Applications", "/Applications/Utilities":
-            for name in os.listdir(base):
-                path = os.path.join(base, name)
-                name = name.rsplit(".", 1)[0].lower()
-                launch[name] = path
-                words = name.split(" ")
-                for word in words:
-                    if word and word not in launch:
-                        if len(name) > 6 and len(word) < 3:
-                            continue
-                        launch[word] = path
+        for base in mac_application_directories:
+            if os.path.isdir(base):
+                for name in os.listdir(base):
+                    path = os.path.join(base, name)
+                    name = name.rsplit(".", 1)[0].lower()
+                    launch[name] = path
+                    words = name.split(" ")
+                    for word in words:
+                        if word and word not in launch:
+                            if len(name) > 6 and len(word) < 3:
+                                continue
+                            launch[word] = path
 
     elif app.platform == "windows":
         shortcuts = enum_known_folder(FOLDERID_AppsFolder)
