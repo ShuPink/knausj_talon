@@ -191,10 +191,6 @@ class MouseSnapNine:
             draw_text(x, y, w, h)
         else:
             draw_grid(self.rect.x, self.rect.y, self.rect.width, self.rect.height)
-
-            # I accepted this incoming change but not so sure about what it does
-            # paint.textsize += 30 - self.count * 3
-            # draw_text(self.offset_x, self.offset_y, self.width, self.height)
             paint.textsize += 12 - self.count * 3
             draw_text(self.rect.x, self.rect.y, self.rect.width, self.rect.height)
 
