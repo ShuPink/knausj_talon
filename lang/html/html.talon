@@ -11,7 +11,6 @@ and code.language: javascript
 # tag(): user.html
 
 # elements
-
 element {user.htmlelement}:
   insert("<{htmlelement}></{htmlelement}>")
   key(ctrl-left:2 right)

@@ -160,6 +160,10 @@ fix all:
   key(up)
 cursor last: key(ctrl-u)
 tag wrap: key(alt-w)
+tag wrap {user.htmlelement}:
+  key(alt-w)
+  sleep(100ms)
+  insert(htmlelement)
 find it: key(ctrl-f)
 replace it: key(ctrl-h)
 
