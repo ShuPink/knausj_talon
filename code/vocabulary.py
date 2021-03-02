@@ -82,7 +82,6 @@ _capitalize_defaults = [
 _word_map_defaults = {
     # E.g:
     # "cash": "cache",
-	"aline": "align",
 }
 _word_map_defaults.update({word.lower(): word for word in _capitalize_defaults})
 
@@ -94,7 +93,6 @@ bind_word_map_to_csv(
     csv_headers=("Replacement", "Original"),
     default_values=_word_map_defaults,
 )
-
 
 # Default words that should be added to Talon's vocabulary.
 _simple_vocab_default = ["nmap", "admin", "Cisco", "Citrix", "VPN", "DNS", "Minecraft"]

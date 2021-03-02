@@ -2,10 +2,15 @@ from talon import Module, Context, actions, ui, imgui, settings
 
 ctx = Context()
 ctx.matches = r"""
+mode: user.typescript
+mode: command
+and code.language: typescript
 mode: user.javascript
-mode: command 
+mode: command
 and code.language: javascript
 """
+
+mod = Module()
 
 ctx.lists["user.code_functions"] = {
     "print": "console.log",
@@ -37,7 +42,6 @@ class user_actions:
         mod = split[0]
         src = split[1]
         s = f'import {mod} from \'{src}\';'
-        #actions.user.insert_cursor(s)
         actions.insert(s)
 
     def code_private_function(text: str):
@@ -50,16 +54,6 @@ class user_actions:
 
         actions.user.code_insert_function(result, None)
 
-    # def code_private_static_function(text: str):
-    #     """Inserts private static function"""
-    #     result = "private static void {}".format(
-    #         actions.user.formatted_text(
-    #             text, settings.get("user.code_private_function_formatter")
-    #         )
-    #     )
-
-    #     actions.user.code_insert_function(result, None)
-
     def code_protected_function(text: str):
         result = "function {}".format(
             actions.user.formatted_text(
@@ -69,15 +63,6 @@ class user_actions:
 
         actions.user.code_insert_function(result, None)
 
-    # def code_protected_static_function(text: str):
-    #     result = "protected static void {}".format(
-    #         actions.user.formatted_text(
-    #             text, settings.get("user.code_protected_function_formatter")
-    #         )
-    #     )
-
-    #     actions.user.code_insert_function(result, None)
-
     def code_public_function(text: str):
         result = "function {}".format(
             actions.user.formatted_text(
@@ -86,13 +71,3 @@ class user_actions:
         )
 
         actions.user.code_insert_function(result, None)
-
-    # def code_public_static_function(text: str):
-    #     result = "public static void {}".format(
-    #         actions.user.formatted_text(
-    #             text, settings.get("user.code_public_function_formatter")
-    #         )
-    #     )
-
-    #     actions.user.code_insert_function(result, None)
-

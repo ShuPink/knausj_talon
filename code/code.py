@@ -20,6 +20,7 @@ setting_public_variable_formatter = mod.setting("code_public_variable_formatter"
 mod.tag("code_comment", desc="Tag for enabling generic comment commands")
 mod.tag("code_block_comment", desc="Tag for enabling generic block comment commands")
 mod.tag("code_operators", desc="Tag for enabling generic operator commands")
+#code_generic is programming.talon
 mod.tag(
     "code_generic",
     desc="Tag for enabling other basic programming commands (loops, functions, etc)",

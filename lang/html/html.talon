@@ -12,27 +12,21 @@ and code.language: javascript
 
 # elements
 element {user.htmlelement}:
-  insert("<{htmlelement}></{htmlelement}>")
-  key(ctrl-left:2 right)
+  user.insert_cursor("<{htmlelement}>[|]</{htmlelement}>")
 
 insert anchor:
-  insert('<a href="link">display_text</a>')
-  key(ctrl-left:2 right)
+  insert('<a href="link">[|]</a>')
 
 insert list:
-  insert('<ul>\n<li>point_one</li>\n<li>point_two</li>\n</ul>')
-  key(ctrl-left:2 right)
+  user.insert_cursor('<ul>\n<li>point_one[|]</li>\n<li>point_two</li>\n</ul>')
 
 # attributes ---
 
 {user.htmlattribute} string:
-  insert('{htmlattribute}=""')
-  key(left)
+  user.insert_cursor('{htmlattribute}="[|]"')
 
 {user.htmlattribute} js:
-  insert('{htmlattribute}')
-  insert('''={}''')
-  key(left)
+  user.insert_cursor('{htmlattribute}={{[|]}}')
 
 # test ----
 
