@@ -1,9 +1,11 @@
 from talon import Context, actions, ui, Module, app
 from typing import Union
 
+is_mac = app.platform == "mac"
+
+ctx = Context()
 mod = Module()
 mod.tag("find_and_replace", desc="Tag for enabling generic find and replace commands")
-
 
 @mod.action_class
 class Actions:
@@ -45,3 +47,25 @@ class Actions:
 
     def select_next_occurrence(text: str):
         """Selects the next occurrence of the text, and suppresses any find/replace dialogs."""
+
+@ctx.action_class("edit")
+class edit_actions:
+    def find(text: str):
+        if is_mac:
+            actions.key("cmd-f")
+        else:
+            actions.key("ctrl-f")
+        actions.sleep("100ms")
+        actions.insert(text)
+
+@ctx.action_class("user")
+class user_actions:
+    def select_previous_occurrence(text: str):
+        actions.edit.find(text)
+        actions.sleep("100ms")
+        actions.key("shift-enter esc")
+
+    def select_next_occurrence(text: str):
+        actions.edit.find(text)
+        actions.sleep("100ms")
+        actions.key("esc")

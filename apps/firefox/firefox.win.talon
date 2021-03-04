@@ -1,6 +1,9 @@
 os: windows
 app: firefox
 -
+
+tag(): user.find_and_replace
+
 action(app.tab_next): key(ctrl-pagedown)
 action(app.tab_previous): key(ctrl-pageup)
 

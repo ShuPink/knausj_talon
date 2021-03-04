@@ -3,7 +3,7 @@ app: chrome
 -
 tag(): browser
 tag(): user.tabs
-#action(browser.address):
+tag(): user.find_and_replace
 
 action(browser.bookmark):
 	key(ctrl-d)
