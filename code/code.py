@@ -92,16 +92,9 @@ class code_actions:
         result = ""
         if not forced_language:
             file_extension = actions.win.file_ext()
-            file_name = actions.win.filename()
 
-            if file_extension != "":
-                result = file_extension
-            # it should always be the last split...
-            elif file_name != "" and "." in file_name:
-                result = file_name.split(".")[-1]
-
-            if result in extension_lang_map:
-                result = extension_lang_map[result]
+            if file_extension and file_extension in extension_lang_map:
+                result = extension_lang_map[file_extension]
 
         # print("code.language: " + result)
         return result
