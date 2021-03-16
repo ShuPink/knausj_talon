@@ -237,6 +237,7 @@ alternate_keys = {
     "delete": "delete",
     "be": "escape",
     "cancel": "escape",
+    "stretch": "space",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
