@@ -48,24 +48,25 @@ class Actions:
     def select_next_occurrence(text: str):
         """Selects the next occurrence of the text, and suppresses any find/replace dialogs."""
 
-@ctx.action_class("edit")
-class edit_actions:
+@ctx.action_class("user")
+class user_actions:
     def find(text: str):
+        """Triggers find in current editor"""
         if is_mac:
             actions.key("cmd-f")
         else:
             actions.key("ctrl-f")
-        actions.sleep("100ms")
-        actions.insert(text)
+        print("wtf")
 
-@ctx.action_class("user")
-class user_actions:
+        if text:
+            actions.insert(text)
+
     def select_previous_occurrence(text: str):
         actions.edit.find(text)
-        actions.sleep("100ms")
+        actions.sleep("150ms")
         actions.key("shift-enter esc")
 
     def select_next_occurrence(text: str):
-        actions.edit.find(text)
-        actions.sleep("100ms")
+        actions.user.find(text)
+        actions.sleep("150ms")
         actions.key("esc")

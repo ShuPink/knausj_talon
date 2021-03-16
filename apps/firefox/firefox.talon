@@ -2,6 +2,7 @@ app: firefox
 -
 tag(): browser
 tag(): user.tabs
+tag(): user.find_and_replace
 
 # TODO
 #action(browser.address):

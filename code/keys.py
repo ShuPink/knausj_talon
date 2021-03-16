@@ -109,10 +109,9 @@ def letters(m) -> str:
     "Multiple letter keys"
     return "".join(m.letter_list)
 
-
+# If you find 'alt' is often misrecognized, try using 'alter'.
 ctx = Context()
 modifier_keys = {
-    # If you find 'alt' is often misrecognized, try using 'alter'.
     "alter": "alt",  #'alter': 'alt',
     "command": "cmd",
     "control": "ctrl",  #'troll':   'ctrl',
@@ -234,7 +233,6 @@ simple_keys = [
 ]
 
 alternate_keys = {
-<<<<<<< HEAD
     #"delete": "backspace",
     #"forward delete": "delete",
 	"backspace": "backspace",
@@ -242,13 +240,6 @@ alternate_keys = {
     "be": "escape",
     "cancel": "escape",
     "stretch": "space",
-=======
-    "delete": "backspace",
-    "forward delete": "delete",
-    #'junk': 'backspace',
-    "page up": "pageup",
-    "page down": "pagedown",
->>>>>>> a2e6b17fc660a36e47e7ffbf80b69ac1fcd7f82d
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):

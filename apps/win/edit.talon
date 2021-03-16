@@ -91,7 +91,7 @@ action(edit.file_start):
 
 action(edit.find):
 	key(ctrl-f)
-	actions.insert(text: str)
+#	insert(text)
 
 action(edit.find_next):
 	key(f3)

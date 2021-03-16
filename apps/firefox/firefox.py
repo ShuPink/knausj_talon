@@ -20,7 +20,6 @@ ctx.matches = r"""
 app: firefox
 """
 
-
 @ctx.action_class("user")
 class user_actions:
     def tab_jump(number: int):
@@ -43,3 +42,4 @@ class browser_actions:
         actions.sleep("50ms")
         actions.insert(url)
         actions.key("enter")
+
