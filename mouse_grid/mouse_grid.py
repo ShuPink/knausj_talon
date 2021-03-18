@@ -31,7 +31,7 @@ class MouseSnapNine:
         self.img = None
         self.mcanvas = None
         self.active = False
-        self.count = 0
+        self.count = 0.
         self.was_control_mouse_active = False
         self.was_zoom_mouse_active = False
 
@@ -145,9 +145,9 @@ class MouseSnapNine:
                         text_string = f"{row*3+col+1}"
                     text_rect = canvas.paint.measure_text(text_string)[1]
                     background_rect = text_rect.copy()
-                    background_rect.center = Point2d(
-                            offset_x + width / 6 + col * width / 3,
-                            offset_y + height / 6 + row * height / 3)
+                    ox = offset_x + width / 6 + col * width / 3
+                    oy = offset_y + height / 6 + row * height / 3
+                    background_rect.center = Point2d(ox, oy)
                     # this modifies the number box padding
                     background_rect = background_rect.inset(-10)
                     # box color
@@ -156,11 +156,33 @@ class MouseSnapNine:
                     canvas.draw_rect(background_rect)
                     # font color
                     paint.color = "ffffff"
-                    canvas.draw_text(
-                        text_string,
-                        offset_x + width / 6 + col * width / 3,
-                        offset_y + height / 6 + row * height / 3 + text_rect.height / 2,
-                    )
+                    canvas.draw_text(text_string, ox, oy + text_rect.height / 2)
+                    #sub number attempt
+                    for sub_row in range(3):
+                        for sub_col in range(3):
+                            sub_text_string = ""
+                            if settings["user.grids_put_one_bottom_left"]:
+                                sub_text_string = f"{(2 - sub_row)*3+sub_col+1}"
+                            else:
+                                sub_text_string = f"{sub_row*3+sub_col+1}"
+                            if sub_text_string == "5": continue
+                            sub_text_rect = canvas.paint.measure_text(sub_text_string)[1]
+                            sub_background_rect = sub_text_rect.copy()
+                            sub_ox = ox - width / 6
+                            sub_oy = oy - height / 6
+                            # sub_background_rect.center = Point2d(
+                            #         sub_ox + width / (6 * 3) + sub_col * width / (3 * 3),
+                            #         sub_oy + height / (6 * 3) + sub_row * height / (3 * 3))
+                            # sub_background_rect = sub_background_rect.inset(-5)
+                            # paint.color = "8184c0"
+                            # paint.style = Paint.Style.FILL
+                            # canvas.draw_rect(sub_background_rect)
+                            paint.color = "c38a68"
+                            canvas.draw_text(
+                                sub_text_string,
+                                sub_ox + width / (6 * 3) + sub_col * width / (3 * 3),
+                                sub_oy + height / (6 * 3) + sub_row * height / (3 * 3) + sub_text_rect.height / 2,
+                            )
 
         if self.count < 2:
             # the cross (+) color

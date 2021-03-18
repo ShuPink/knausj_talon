@@ -62,6 +62,8 @@ extension_lang_map = {
     ".vimrc": "vimscript",
     ".css": "stylesheet",
     ".scss": "stylesheet",
+    ".module.css": "stylesheet",
+    ".module.scss": "stylesheet",
     ".html": "html",
 }
 

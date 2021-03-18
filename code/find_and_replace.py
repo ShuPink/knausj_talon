@@ -62,7 +62,7 @@ class user_actions:
             actions.insert(text)
 
     def select_previous_occurrence(text: str):
-        actions.edit.find(text)
+        actions.user.find(text)
         actions.sleep("150ms")
         actions.key("shift-enter esc")
 
