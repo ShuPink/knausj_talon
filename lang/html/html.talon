@@ -4,6 +4,9 @@ and code.language: html
 mode: user.javascript
 mode: command
 and code.language: javascript
+mode: user.typescript
+mode: command
+and code.language: typescript
 -
 # tag(): user.code_operators
 # tag(): user.code_comment
@@ -15,7 +18,7 @@ element {user.htmlelement}:
   user.insert_cursor("<{htmlelement}>[|]</{htmlelement}>")
 
 insert anchor:
-  insert('<a href="link">[|]</a>')
+  user.insert_cursor('<a href="link">[|]</a>')
 
 insert list:
   user.insert_cursor('<ul>\n<li>point_one[|]</li>\n<li>point_two</li>\n</ul>')

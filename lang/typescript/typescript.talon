@@ -17,6 +17,12 @@ define property <user.text> as {user.tstype}:
 define property <user.text> as {user.tstype} array:
   user.insert_cursor('{user.formatted_text(text, "PRIVATE_CAMEL_CASE")}: {tstype}[][|];')
 
+return type JSX Element:
+  insert(': JSX.Element')
+
+infer props <user.text>$:
+  insert(': InferProps<typeof {user.formatted_text(text, "PUBLIC_CAMEL_CASE")}.propTypes>')
+
 # tag(): user.code_operators
 # tag(): user.code_comment
 # tag(): user.code_generic

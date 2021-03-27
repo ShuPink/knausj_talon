@@ -21,7 +21,8 @@ ctx.lists["user.code_libraries"] = {
     "class ex": "clsx:clsx",
     "head": "Head:next/head",
     "grid": "Grid:@material-ui/core/Grid",
-    "hooks": "{ useRef, useState, useEffect }:react"
+    "hooks": "{ useRef, useState, useEffect }:react",
+    "prop types": "PropTypes, { InferProps }:prop-types"
 }
 
 @ctx.action_class("user")

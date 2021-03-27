@@ -8,6 +8,9 @@ and code.language: html
 mode: user.javascript
 mode: command
 and code.language: javascript
+mode: user.typescript
+mode: command
+and code.language: typescript
 """
 
 ctx.lists["user.htmlelement"] = {
