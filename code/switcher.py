@@ -281,7 +281,7 @@ class Actions:
         raise RuntimeError(f'App not running: "{name}"')
 
     def switcher_focus(name: str):
-        """Focus a new application by  name"""
+        """Focus a new application by name"""
         app = actions.user.get_running_app(name)
         app.focus()
         # Hacky solution to do this reliably on Mac.
