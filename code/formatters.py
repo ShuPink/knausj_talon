@@ -288,7 +288,7 @@ ctx.lists["self.prose_formatter"] = {
 }
 
 
-@imgui.open()
+@imgui.open(y=0, x=3200)
 def gui(gui: imgui.GUI):
     gui.text("List formatters")
     gui.line()

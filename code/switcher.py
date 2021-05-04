@@ -179,6 +179,7 @@ exclusions = [
     'LockApp.exe', # default lock screen overlay
     'PaintStudio.View.exe', # unfortunately paint 3d seems to always be running
     'talon.exe', # I don't actually want to activate the talon app
+    'WinStore.App.exe', # just another windows thing that sits around waiting
     ]
 
 def update_lists():
@@ -331,7 +332,7 @@ class Actions:
         gui.hide()
 
 
-@imgui.open()
+@imgui.open(y=0, x=3300)
 def gui(gui: imgui.GUI):
     gui.text("Names of running applications")
     gui.line()

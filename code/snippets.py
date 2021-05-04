@@ -6,7 +6,7 @@ mod.tag("snippets", desc="Tag for enabling code snippet-related commands")
 mod.list("snippets", desc="List of code snippets")
 
 
-@imgui.open()
+@imgui.open(y=0, x=3300)
 def gui(gui: imgui.GUI):
     gui.text("snippets")
     gui.line()

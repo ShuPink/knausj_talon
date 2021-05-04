@@ -14,15 +14,16 @@ mod = Module()
 
 ctx.lists["user.code_functions"] = {
     "print": "console.log",
-    "string": ".ToString",
+    "to string": ".ToString",
 }
 
 ctx.lists["user.code_libraries"] = {
+    "file system": "fs:fs",
     "class ex": "clsx:clsx",
     "head": "Head:next/head",
     "grid": "Grid:@material-ui/core/Grid",
     "hooks": "{ useRef, useState, useEffect }:react",
-    "prop types": "PropTypes, { InferProps }:prop-types"
+    "prop types": "PropTypes, { InferProps }:prop-types",
 }
 
 @ctx.action_class("user")

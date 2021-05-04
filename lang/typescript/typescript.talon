@@ -17,6 +17,12 @@ define property <user.text> as {user.tstype}:
 define property <user.text> as {user.tstype} array:
   user.insert_cursor('{user.formatted_text(text, "PRIVATE_CAMEL_CASE")}: {tstype}[][|];')
 
+define argument <user.text> as {user.tstype}:
+  user.insert_cursor('{user.formatted_text(text, "PRIVATE_CAMEL_CASE")}: {tstype}[|]')
+
+define argument <user.text> as {user.tstype} array:
+  user.insert_cursor('{user.formatted_text(text, "PRIVATE_CAMEL_CASE")}: {tstype}[][|]')
+
 return type JSX Element:
   insert(': JSX.Element')
 

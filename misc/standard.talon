@@ -31,3 +31,4 @@ junk: key(backspace)
 slap:
 	edit.line_end()
 	key(enter)
+dictionary {user.dictionary}: insert('{dictionary}')

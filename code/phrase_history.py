@@ -5,8 +5,8 @@ mod = Module()
 
 # list of recent phrases, most recent first
 phrase_history = []
-phrase_history_length = 40
-phrase_history_display_length = 40
+phrase_history_length = 30
+phrase_history_display_length = 30
 
 @mod.action_class
 class Actions:
@@ -52,7 +52,7 @@ class Actions:
         if gui.showing: gui.hide()
         else: gui.show()
 
-@imgui.open()
+@imgui.open(y=50, x=3000)
 def gui(gui: imgui.GUI):
     gui.text("Recent phrases")
     gui.line()
