@@ -47,6 +47,9 @@ class Actions:
 
     def select_next_occurrence(text: str):
         """Selects the next occurrence of the text, and suppresses any find/replace dialogs."""
+    
+    def select_next_token():
+        """???"""
 
 @ctx.action_class("user")
 class user_actions:
@@ -69,4 +72,10 @@ class user_actions:
     def select_next_occurrence(text: str):
         actions.user.find(text)
         actions.sleep("150ms")
+        actions.key("esc")
+
+    def select_next_token():
+        actions.edit.find("")
+        actions.key("enter")
+        actions.key("enter")
         actions.key("esc")
