@@ -4,8 +4,9 @@ double dash: "--"
 (curl | left curl): "{"
 (are curl | right curl): "}"
 triple quote: "'''"
+(triple grave | triple back tick | gravy):
+    insert("```")
 (dot dot | dotdot): ".."
-#ellipses: "…"
 ellipses: "..."
 (comma and | spamma): ", "
 plus: "+"
@@ -32,14 +33,14 @@ empty escaped string:
 (inside bracket | args):
 	insert("()")
 	key(left)
-inside (squares | list): 
-	insert("[]") 
+inside (squares | list):
+	insert("[]")
 	key(left)
 inside (curl | braces): 
 	insert("{}") 
 	key(left)
-inside percent: 
-	insert("%%") 
+inside percent:
+	insert("%%")
 	key(left)
 inside quotes:
 	insert('""')
