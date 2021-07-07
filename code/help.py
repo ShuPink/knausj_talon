@@ -165,7 +165,7 @@ def get_pages(item_line_counts: List[int]) -> List[int]:
     return pages
 
 
-@imgui.open(y=10, x=3100)
+@imgui.open(y=10, x=2900)
 def gui_context_help(gui: imgui.GUI):
     global context_command_map
     global current_context_page

@@ -43,10 +43,10 @@ task list:
 move [window] {user.arrow_key}:
 	key("super-{arrow_key}")
 
-minimise: 
+window minimize:
 	key("super-down")
 
-maximise: 
+window maximize: 
 	key("super-up")
 
 ^alter$:

@@ -14,4 +14,5 @@ ctx.lists["user.dictionary"] = {
   "parse": "parse",
   "error": "error",
   "user": "user",
+  "log in": "login"
 }

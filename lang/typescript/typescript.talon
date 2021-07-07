@@ -2,7 +2,20 @@ mode: user.typescript
 mode: command
 and code.language: typescript
 -
+tag(): user.code_operators
+tag(): user.code_comment
+tag(): user.code_generic
+# settings():
+#     user.code_private_function_formatter = "SNAKE_CASE"
+#     user.code_protected_function_formatter = "SNAKE_CASE"
+#     user.code_public_function_formatter = "SNAKE_CASE"
+#     user.code_private_variable_formatter = "SNAKE_CASE"
+#     user.code_protected_variable_formatter = "SNAKE_CASE"
+#     user.code_public_variable_formatter = "SNAKE_CASE"
+#     # whether or not to use uint_8 style datatypes
+#     #    user.use_stdint_datatypes = 1
 
+  
 ^interface <user.text>$:
   user.insert_cursor('interface {user.formatted_text(text, "PUBLIC_CAMEL_CASE")} {{[|]}}')
   key(enter)
@@ -28,18 +41,6 @@ return type JSX Element:
 
 infer props <user.text>$:
   insert(': InferProps<typeof {user.formatted_text(text, "PUBLIC_CAMEL_CASE")}.propTypes>')
-
-# tag(): user.code_operators
-# tag(): user.code_comment
-# tag(): user.code_generic
-
-# settings():
-#     user.code_private_function_formatter = "PRIVATE_CAMEL_CASE"
-#     user.code_protected_function_formatter = "PRIVATE_CAMEL_CASE"
-#     user.code_public_function_formatter = "PRIVATE_CAMEL_CASE"
-#     user.code_private_variable_formatter = "PRIVATE_CAMEL_CASE"
-#     user.code_protected_variable_formatter = "PRIVATE_CAMEL_CASE"
-#     user.code_public_variable_formatter = "PRIVATE_CAMEL_CASE"
 
 # action(user.code_is_not_null): " !== null"
 
@@ -103,7 +104,7 @@ infer props <user.text>$:
 
 # action(user.code_include_local): ""
 
-# action(user.code_type_definition): ""
+action(user.code_type_definition): "type "
 
 # action(user.code_typedef_struct): ""
 

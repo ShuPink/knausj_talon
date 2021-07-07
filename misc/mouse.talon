@@ -60,9 +60,13 @@ wheel tiny [down] here:
     user.mouse_move_center_active_window()
     mouse_scroll(20)
 wheel downer: user.mouse_scroll_down_continuous()
+wheel tiny downer: user.mouse_scroll_down_continuous_slow()
 wheel downer here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_down_continuous()
+wheel tiny downer here:
+    user.mouse_move_center_active_window()
+    user.mouse_scroll_down_continuous_slow()
 wheel up: user.mouse_scroll_up()
 wheel up here:
  user.mouse_scroll_up()
@@ -78,8 +82,8 @@ wheel gaze: user.mouse_gaze_scroll()
 wheel gaze here:
     user.mouse_move_center_active_window()
     user.mouse_gaze_scroll()
-wheel stop: user.mouse_scroll_stop()
-wheel stop here:
+[wheel] stop: user.mouse_scroll_stop()
+[wheel] stop here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_stop()
 wheel left: mouse_scroll(0, -40)

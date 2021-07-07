@@ -176,19 +176,19 @@ symbol_key_words = {
     "under score": "_",
     #"paren": "(",
     "round": "(",
-    "left round": "(",  
-    "right round": ")",  
+    "open bracket": "(",  
+    "close bracket": ")",  
     #"L paren": "(",
     "left paren": "(",
     #"R paren": ")",
     "right paren": ")",
-    #"brace":"{",
-    "curly": "{",
-    #"left brace": "{",
-    "left curly": "{",
-    "right curly": "}",
+    # "brace":"{", # easily confused with space
+    "curl": "{",
+    "left brace": "{",
+    "left curl": "{",
+    "right curl": "}",
     #"R brace": "}",
-    #"right brace": "}",
+    "right brace": "}",
     "angle": "<",
     "left angle": "<",
     "less than": "<",
@@ -240,6 +240,7 @@ alternate_keys = {
     "be": "escape",
     "cancel": "escape",
     "stretch": "space",
+    "okay":"enter"
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):

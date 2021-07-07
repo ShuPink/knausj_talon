@@ -14,7 +14,7 @@ ctx.lists["user.tstype"] = {
     "string": "string",
     "boolean": "boolean",
     "number": "number",
-    "object": "{{}}",
+    "object": "Record<string, unknown>",
     "void": "void",
     "null": "null",
     "undefined": "undefined",

@@ -86,6 +86,12 @@ setting_mouse_continuous_scroll_amount = mod.setting(
     default=80,
     desc="The default amount used when scrolling continuously",
 )
+setting_mouse_continuous_scroll_amount_slow = mod.setting(
+    "mouse_continuous_scroll_amount_slow",
+    type=int,
+    default=40,
+    desc="The default amount used when scrolling continuously slowly",
+)
 setting_mouse_wheel_down_amount = mod.setting(
     "mouse_wheel_down_amount",
     type=int,
@@ -186,6 +192,18 @@ class Actions:
         global continuous_scoll_mode
         continuous_scoll_mode = "scroll down continuous"
         mouse_scroll(setting_mouse_continuous_scroll_amount.get())()
+
+        if scroll_job is None:
+            start_scroll()
+
+        if setting_mouse_hide_mouse_gui.get() == 0:
+            gui_wheel.show()
+
+    def mouse_scroll_down_continuous_slow():
+        """Scrolls down continuously"""
+        global continuous_scoll_mode
+        continuous_scoll_mode = "scroll down continuous"
+        mouse_scroll(setting_mouse_continuous_scroll_amount_slow.get())()
 
         if scroll_job is None:
             start_scroll()

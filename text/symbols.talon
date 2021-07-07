@@ -1,8 +1,8 @@
 question [mark]: "?"
 (downscore | underscore): "_"
 double dash: "--"
-(bracket | brack | left bracket): "{"
-(rbrack | are bracket | right bracket): "}"
+(curl | left curl): "{"
+(are curl | right curl): "}"
 triple quote: "'''"
 (dot dot | dotdot): ".."
 #ellipses: "…"
@@ -11,6 +11,7 @@ ellipses: "..."
 plus: "+"
 arrow: "->"
 dub arrow: "=>"
+double arrow: "=>"
 new line: "\\n"
 carriage return: "\\r"
 line feed: "\\r\\n"
@@ -28,13 +29,13 @@ empty escaped string:
     "\\'\\'"
     key(left)
     key(left)
-(inside parens | args):
+(inside bracket | args):
 	insert("()")
 	key(left)
 inside (squares | list): 
 	insert("[]") 
 	key(left)
-inside (bracket | braces): 
+inside (curl | braces): 
 	insert("{}") 
 	key(left)
 inside percent: 
@@ -46,10 +47,10 @@ inside quotes:
 angle this: 
     text = edit.selected_text()
     user.paste("<{text}>")
-(bracket | brace) this: 
+(curl | brace | object) this: 
     text = edit.selected_text()
     user.paste("{{{text}}}")
-(parens | args) this: 
+(bracket | args) this: 
     text = edit.selected_text()
     user.paste("({text})")
 percent this: 
@@ -58,4 +59,6 @@ percent this:
 quote this:
     text = edit.selected_text()
     user.paste('"{text}"')
-
+literal this:
+    text = edit.selected_text()
+    user.paste('`{text}`')
