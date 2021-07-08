@@ -182,6 +182,16 @@ exclusions = [
     'WinStore.App.exe', # just another windows thing that sits around waiting
     ]
 
+# ok I only really use talon for a few apps I found this method easier
+inclusions = [
+    'Blue', # thought this would be 'Blue.exe'
+    'Firefox', # thought this would be 'firefox.exe'
+    'Windows Explorer', # thought this would be 'explorer.exe'
+    "Notepad", 
+    'Visual Studio Code', # thought this would be 'Code.exe'
+    'chrome.exe', # chrome
+    ]
+
 def update_lists():
     global running_application_dict
     running_application_dict = {}
@@ -189,9 +199,15 @@ def update_lists():
     for cur_app in ui.apps(background=False):
         name = cur_app.name
 
-        # This is a bit brute force... but since I changed "focus <app>" 
-        # to "[focus] <app>" I kept trying to bring into focus stuff I didn't want
-        if name in exclusions:
+        ## use to find an app name if you're not sure what it is
+        # print('name', name)
+        
+        # not needed since using inclusions only right now
+        # if name in exclusions:
+        #     continue
+
+        # Brute force the running list since I keep activating random apps running in the bg
+        if name not in inclusions: 
             continue
 
         if name.endswith(".exe"):
@@ -199,7 +215,7 @@ def update_lists():
 
         words = get_words(name)
         for word in words:
-            if word and word not in running and len(word) >= 3:
+            if word and word not in running and len(word) >= 3 and word not in words_to_exclude:
                 running[word.lower()] = cur_app.name
 
         running[name.lower()] = cur_app.name

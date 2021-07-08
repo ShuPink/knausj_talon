@@ -11,24 +11,24 @@ mod.list(
 )
 
 website_defaults = {
-    "amazon": "https://www.amazon.com/",
-    "dropbox": "https://dropbox.com/",
+    # "amazon": "https://www.amazon.com/",
+    # "dropbox": "https://dropbox.com/",
     "google": "https://www.google.com/",
-    "google calendar": "https://calendar.google.com",
+    # "google calendar": "https://calendar.google.com",
     "google maps": "https://maps.google.com/",
-    "google scholar": "https://scholar.google.com/",
+    # "google scholar": "https://scholar.google.com/",
     "gmail": "https://mail.google.com/",
     "github": "https://github.com/",
-    "gist": "https://gist.github.com/",
+    # "gist": "https://gist.github.com/",
     "wikipedia": "https://en.wikipedia.org/",
     "youtube": "https://www.youtube.com/",
 }
 
 _search_engine_defaults = {
-    "amazon": "https://www.amazon.com/s/?field-keywords=%s",
+    # "amazon": "https://www.amazon.com/s/?field-keywords=%s",
     "google": "https://www.google.com/search?q=%s",
     "map": "https://maps.google.com/maps?q=%s",
-    "scholar": "https://scholar.google.com/scholar?q=%s",
+    # "scholar": "https://scholar.google.com/scholar?q=%s",
     "wiki": "https://en.wikipedia.org/w/index.php?search=%s",
 }
 
