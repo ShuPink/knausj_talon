@@ -24,6 +24,7 @@ ctx.lists["user.code_libraries"] = {
     "grid": "Grid:@material-ui/core/Grid",
     "hooks": "{ useRef, useState, useEffect }:react",
     "prop types": "PropTypes, { InferProps }:prop-types",
+    "styles": "s:./style.module.scss",
 }
 
 @ctx.action_class("user")

@@ -106,7 +106,8 @@ indent [more]:
     edit.indent_less()
 
 # deleting
-clear line:
+# "clear line" conflict with "clear one"
+clear that:
     edit.delete_line()
 
 clear left:
@@ -150,14 +151,15 @@ clear way down:
     edit.extend_file_end()
     edit.delete()
 
-clear all:
-    edit.select_all()
-    edit.delete()
+# almost never want to do this
+# clear all:
+#     edit.select_all()
+#     edit.delete()
 
 #copy commands
-copy all:
-    edit.select_all()
-    edit.copy()
+# copy all:
+#     edit.select_all()
+#     edit.copy()
 #to do: do we want these variants, seem to conflict
 # copy left:
 #      edit.extend_left()
@@ -188,10 +190,10 @@ copy line:
     edit.select_line()
     edit.copy()
 
-#cut commands
-cut all:
-    edit.select_all()
-    edit.cut()
+# #cut commands
+# cut all:
+#     edit.select_all()
+#     edit.cut()
 #to do: do we want these variants
 # cut left:
 #      edit.select_all()

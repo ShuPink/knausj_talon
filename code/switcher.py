@@ -185,6 +185,7 @@ exclusions = [
 # ok I only really use talon for a few apps I found this method easier
 inclusions = [
     'Blue', # thought this would be 'Blue.exe'
+    'Blue.exe', # ?? not sure which one this uses
     'Firefox', # thought this would be 'firefox.exe'
     'Windows Explorer', # thought this would be 'explorer.exe'
     "Notepad", 
